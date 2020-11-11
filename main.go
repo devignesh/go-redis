@@ -31,7 +31,7 @@ func main() {
 				Addr: "127.0.0.1:6379",
 			})
 		},
-		Count:       10,
+		Count:       100,
 		Snapshotter: snap,
 	})
 
