@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/go-redis/redis"
+	myredis "github.com/go-redis/redis"
 
 	"github.com/RussellLuo/rpubsub"
 )
@@ -12,13 +12,13 @@ func main() {
 
 	sub := rpubsub.NewSubscriber(&rpubsub.SubOpts{
 		NewRedisClient: func() rpubsub.RedisClient {
-			return redis.NewClient(&redis.Options{
+			return myredis.NewClient(&myredis.Options{
 				Addr:     "localhost:6379",
 				Password: "",
 				DB:       0,
 			})
 		},
-		Count: 10,
+		Count: 100,
 	})
 
 	streams := make(chan rpubsub.Stream)
